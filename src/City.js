@@ -1,5 +1,9 @@
 import { render } from '@testing-library/react';
 import React from 'react';
+import ClearIcon from '@material-ui/icons/Clear';
+import {IconButton} from '@material-ui/core';
+import { green } from '@material-ui/core/colors';
+
 
 class City extends React.Component {
     constructor(props) {
@@ -9,7 +13,7 @@ class City extends React.Component {
         const test = "test";
         this.handleOnClick = this.handleOnClick.bind(this);
         this.handleDivOnClick = this.handleDivOnClick.bind(this);
-
+        //<button type='submit' onClick={this.handleOnClick} class='btn'></button>
     }
 
     render() {
@@ -23,7 +27,7 @@ class City extends React.Component {
         else {
         return (
             <div className='cityPreview' onClick={this.handleDivOnClick}><h1>{this.props.cityName.toUpperCase()}: {this.state.temp}°C</h1>
-                <button type='submit' onClick={this.handleOnClick} class='btn'></button>
+            <IconButton onClick={this.handleOnClick}><ClearIcon/></IconButton>
             </div>);
         }
         

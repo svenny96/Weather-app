@@ -3,13 +3,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css'; 
 import * as serviceWorker from './serviceWorker';
-import Weather from './weather';
+import CityPreview from './cityPreview';
 
 class App extends React.Component {
   render() {
     return (
-      <div>
-        <Weather />
+      <div className="anchorDiv">
+      <CityPreview />
       </div>
       
       );

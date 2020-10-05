@@ -10,7 +10,7 @@ class DetailedWeather extends React.Component {
 
     render() {
         if (this.state.data !== null) {
-            if (this.state.data.list !== undefined) {
+            if (this.state.data.list !== undefined && this.props.cityName !== undefined) {
                 return(
             
                     <div className="weatherDetailed" key={this.props.cityName}>
@@ -56,7 +56,7 @@ class DetailedWeather extends React.Component {
     }
     
     componentDidUpdate(prevProps, prevState) {
-        if(this.props.cityName !== prevProps.cityName) {
+        if(this.props.cityName !== prevProps.cityName && this.props.cityName !== undefined) {
             const link =  "https://api.openweathermap.org/data/2.5/forecast?q="+this.props.cityName+"&appid="+this.apiKey+"&units=metric";
             fetch(link)
            .then(res => res.json())

@@ -1,8 +1,8 @@
 import React from 'react';
 import City from './City';
 import DetailedWeather from './DetailedWeather';
-import Snowflakes from './snowflakes';
-
+import AddIcon from '@material-ui/icons/Add';
+import {IconButton} from '@material-ui/core';
 
 class cityPreview extends React.Component {
     constructor(props) {
@@ -14,7 +14,8 @@ class cityPreview extends React.Component {
         this.handleOnChange =  this.handleOnChange.bind(this);
         this.removeCity = this.removeCity.bind(this);
         this.changeSelected = this.changeSelected.bind(this);
-    
+        this.handleOnClick = this.handleOnClick.bind(this);
+       // <button type='submit'>Submit</button>
     }
 
     render() {
@@ -22,10 +23,12 @@ class cityPreview extends React.Component {
             <div className='weatherData'>
             <div className='cityList'>
                 <div className='form'>
-                <form onSubmit={this.handleSubmit}>
-                    <input type='text' onChange={this.handleOnChange}></input>
-                    <button type='submit'>+</button>
+                <form id="addForm" onSubmit={this.handleSubmit}>
+                    <input type='text' onChange={this.handleOnChange} placeholder="City Name to add"></input>
+                        <IconButton type="submit" className="IconButton"><AddIcon/></IconButton>
+                        
                 </form>
+               
                 </div>
                 
                 {this.state.cityNames.map(i => {
@@ -43,8 +46,17 @@ class cityPreview extends React.Component {
         const cityNames = this.state.cityNames;
         const item = this.state.item;
         event.preventDefault();
-        this.setState({cityNames: [...cityNames, item] });
-        
+        if (cityNames.length === 0){
+            this.setState({cityNames: [...cityNames, item], selectedCity: item });
+        }
+        else {
+            this.setState({cityNames: [...cityNames, item] });
+        }
+   }
+
+   handleOnClick(event) {
+        document.getElementById("addForm").submit();
+        event.preventDefault();
    }
 
    removeCity(cityName) {
