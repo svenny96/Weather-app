@@ -26,7 +26,7 @@ class City extends React.Component {
         }
         else {
         return (
-            <div className='cityPreview' onClick={this.handleDivOnClick}><h1>{this.props.cityName.toUpperCase()}: {this.state.temp}°C</h1>
+            <div className='cityPreview' onClick={this.handleDivOnClick}><h1>{this.props.cityName}: {this.state.temp}°C</h1>
             <IconButton onClick={this.handleOnClick}><ClearIcon/></IconButton>
             </div>);
         }

@@ -15,9 +15,9 @@ class DetailedWeather extends React.Component {
             
                     <div className="weatherDetailed" key={this.props.cityName}>
                         <div>
-                            <span className="detailedHeadline">{this.props.cityName}</span><br></br>
-                            {this.unixToUtc(this.state.data.list[0].dt)}<br></br>
-                            <span className="temp">{Math.floor(this.state.data.list[0].main.temp )}°C</span><br></br>
+                            <span className="detailedHeadline">{this.props.cityName}</span>
+                            <span className="date">{this.unixToUtc(this.state.data.list[0].dt)}</span><br></br>
+                            <span className="temp">{Math.floor(this.state.data.list[0].main.temp )} °C</span>
                             <span className="description"><img src={logo}></img>{this.state.data.list[0].weather[0].description}</span><br></br>
                             
                             
